@@ -455,9 +455,10 @@ class Hal extends AbstractHelper implements
             $payload['total_items'] = isset($payload['total_items']) ? $payload['total_items'] : count($collection);
         }
 
-        $this->getEventManager()->trigger(__FUNCTION__  . 'post', $this, array('payload' => $payload));
+        $args = new \ArrayObject(compact('payload'));
+        $this->getEventManager()->trigger(__FUNCTION__  . '.post', $this, $args);
 
-        return $payload;
+        return $args['payload'];
     }
 
     /**
