@@ -456,7 +456,7 @@ class Hal extends AbstractHelper implements
         }
 
         $args = new \ArrayObject(compact('payload'));
-        $this->getEventManager()->trigger(__FUNCTION__  . 'post', $this, $args);
+        $this->getEventManager()->trigger(__FUNCTION__  . '.post', $this, $args);
 
         return $args['payload'];
     }
